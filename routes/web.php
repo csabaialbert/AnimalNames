@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +14,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [PageController::class, 'home'])->name('/');
+Route::get('/home', [PageController::class, 'home'])->name('home');
+
+
+//Show register create form
+Route::get('/register', [UserController::class, 'create'])->middleware('guest');
+
+//Create new user
+Route::post('/users', [UserController::class, 'store'])->middleware('guest');
+
+//log user out
+Route::post('/logout', [UserController::class, 'logout'])->middleware('auth');
+
+//Show login form
+Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
+
+//Login user
+Route::post('/users/authenticate', [UserController::class, 'authenticate']);
+
+
