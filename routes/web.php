@@ -17,6 +17,7 @@ use App\Http\Controllers\UserController;
 Route::get('/', [PageController::class, 'home'])->name('/');
 Route::get('/home', [PageController::class, 'home'])->name('home');
 
+Route::get('/database/all', [PageController::class, 'all'])->name('all');
 
 //Show register create form
 Route::get('/register', [UserController::class, 'create'])->middleware('guest');
