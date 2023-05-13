@@ -39,7 +39,7 @@
                         class="z-10 hidden font-normal bg-yellow-50 divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600 ">
                         <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
                             <li>
-                                <a href="#"
+                                <a href="{{ route('all') }}"
                                     class="block px-4 py-2 hover:bg-emerald-300 dark:hover:bg-gray-600 hover:text-white">All animal names</a>
                             </li>
                             <li>
