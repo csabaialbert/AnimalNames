@@ -89,9 +89,6 @@
                         <span class="font-bold uppercase">Welcome {{auth()->user()->name}}</span>
                     </li>
                     <li>
-                        <a href="/listings/manage" class="hover:text-laravel" ><i class="fa-solid fa-gear"></i> Manage Listings</a>
-                    </li>
-                    <li>
                         <form action="/logout" class="inline" method="POST">
                             @csrf
                             <button type="submit">
