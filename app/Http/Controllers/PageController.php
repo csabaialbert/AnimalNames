@@ -14,6 +14,6 @@ class PageController extends Controller
 
     public function all()
     {
-        return view('database.all', ['animals' => Animal::orderBy('aname')->paginate(20)]);
+        return view('database.all', ['animals' => Animal::orderBy('aname')->paginate(32)]);
     }
 }
