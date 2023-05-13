@@ -18,6 +18,14 @@ Route::get('/', [PageController::class, 'home'])->name('/');
 Route::get('/home', [PageController::class, 'home'])->name('home');
 
 Route::get('/database/all', [PageController::class, 'all'])->name('all');
+Route::get('/database/novels', [PageController::class, 'novels'])->name('novels');
+Route::get('/database/species', [PageController::class, 'species'])->name('species');
+Route::put('/database/specie/list', [PageController::class, 'specieList'])->name('specieList');
+Route::get('/database/years', [PageController::class, 'years'])->name('years');
+Route::put('/database/year/list', [PageController::class, 'yearList'])->name('yearList');
+Route::get('/database/animal/{animal}', [PageController::class, 'animalShow'])->name('animalShow');
+Route::get('/database/animal/{animal}/edit', [PageController::class, 'animalEdit'])->name('animalEdit');
+Route::put('/database/animal/{animal}', [PageController::class, 'update'])->name('update');
 
 //Show register create form
 Route::get('/register', [UserController::class, 'create'])->middleware('guest');

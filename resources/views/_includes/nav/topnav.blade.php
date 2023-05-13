@@ -43,15 +43,15 @@
                                     class="block px-4 py-2 hover:bg-emerald-300 dark:hover:bg-gray-600 hover:text-white">All animal names</a>
                             </li>
                             <li>
-                                <a href="#"
+                                <a href="{{ route('novels') }}"
                                     class="block px-4 py-2 hover:bg-emerald-300 dark:hover:bg-gray-600 hover:text-white">All novels</a>
                             </li>
                             <li>
-                                <a href="#"
+                                <a href="{{ route('species') }}"
                                     class="block px-4 py-2 hover:bg-emerald-300 dark:hover:bg-gray-600 hover:text-white">Select by animal species</a>
                             </li>
                             <li>
-                                <a href="#"
+                                <a href="{{ route('years') }}"
                                     class="block px-4 py-2 hover:bg-emerald-300 dark:hover:bg-gray-600 hover:text-white">Select by novel publish year</a>
                             </li>
                         </ul>
