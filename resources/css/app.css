@@ -4,6 +4,7 @@
 
 body {
     background-image: url('/public/assets/photo-1464618663641-bbdd760ae84a.jpg');
+    background-attachment: fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -20,4 +21,8 @@ nav {
 
 h1 {
     font-family:'Courier New', Courier, monospace;
+}
+
+.card {
+    background-color: rgba(240, 248, 255, 0.719);
 }
