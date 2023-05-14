@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-    public function home() 
+    public function home()
     {
         return view('home');
     }
@@ -75,4 +75,52 @@ class PageController extends Controller
 
         return redirect('/database/all')->with('message', 'Animal updated successfully!');
     }
+
+
+    public function novelShow(Novel $novel)
+    {
+        return view('database.novelShow', ['novel' => $novel]);
+    }
+
+    public function novelEdit(Novel $novel)
+    {
+        return view('database.novelEdit', ['novel' => $novel]);
+    }
+
+    public function updateNovel(Request $request, Novel $novel)
+    {
+        $formFields = $request->validate([
+            'pyear' => 'required',
+            'title' => 'required',
+            'publisher' => 'required',
+        ]);
+
+        $novel->update($formFields);
+
+        return redirect('/database/novels')->with('message', 'Novel updated successfully!');
+    }
+
+    public function createNovel() {
+        return view('database.createNovel');
+    }
+
+    public function storeNovel(Request $request) {
+        $formFields = $request->validate([
+            'pyear'=>'required',
+            'title'=>'required',
+            'publisher'=>'required'
+        ]);
+
+        Novel::create($formFields);
+
+        return redirect('/database/novels')->with('message', 'Novel created succesfully!');
+    }
+
+    public function deleteNovel(Novel $novel){
+
+        $novel->delete();
+        return redirect('/database/novels')->with('message', 'Novel deleted succesfully!');
+    }
+    
+
 }

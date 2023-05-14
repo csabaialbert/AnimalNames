@@ -54,6 +54,10 @@
                                 <a href="{{ route('years') }}"
                                     class="block px-4 py-2 hover:bg-emerald-300 dark:hover:bg-gray-600 hover:text-white">Select by novel publish year</a>
                             </li>
+                            <li>
+                                <a href="{{ route('createNovel') }}"
+                                    class="block px-4 py-2 hover:bg-emerald-300 dark:hover:bg-gray-600 hover:text-white">Create novel</a>
+                            </li>
                         </ul>
                     </div>
                 </li>
