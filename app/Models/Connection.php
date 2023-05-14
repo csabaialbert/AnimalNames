@@ -10,11 +10,11 @@ class Connection extends Model
     protected $fillable = ['animalid', 'novelid'];
     public function animal()
     {
-        return $this->belongsTo(Animal::class, 'animalid');
+        return $this->hasOne(Animal::class, 'id' , 'animalid');
     }
 
     public function novel()
     {
-        return $this->hasOne(Novel::class, 'novelid');
+        return $this->hasOne(Novel::class,'id' , 'novelid');
     }
 }
