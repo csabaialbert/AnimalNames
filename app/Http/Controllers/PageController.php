@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Animal;
 use App\Models\Novel;
+use App\Models\Connection;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -120,6 +121,15 @@ class PageController extends Controller
 
         $novel->delete();
         return redirect('/database/novels')->with('message', 'Novel deleted succesfully!');
+    }
+
+    public function showBoth(){
+        $connections = Connection::get();
+        $val=[];
+        foreach($connections as $connection){
+            array_push($val, $connection->load('animal', 'novel'));
+        }
+        return view('database.showBoth', ['val'=>$val]);
     }
     
 

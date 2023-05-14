@@ -10,7 +10,7 @@ class Animal extends Model
     protected $fillable = ['aname', 'species'];
     public function connection()
     {
-        return $this->hasMany(Connection::class, 'animalid');
+        return $this->belongsTo(Connection::class, 'id');
     }
 
     

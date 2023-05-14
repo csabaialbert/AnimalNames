@@ -59,6 +59,10 @@
                                 <a href="{{ route('createNovel') }}"
                                     class="block px-4 py-2 hover:bg-emerald-300 dark:hover:bg-gray-600 hover:text-white">Create novel</a>
                             </li>
+                            <li>
+                                <a href="{{ route('showBoth') }}"
+                                    class="block px-4 py-2 hover:bg-emerald-300 dark:hover:bg-gray-600 hover:text-white">Show connected</a>
+                            </li>
                         </ul>
                     </div>
                 </li>
@@ -99,7 +103,7 @@
                 </li>
                 @endif
                 @endif
-                
+
                     @auth
                     <li>
                         <span class="font-bold uppercase">Welcome {{auth()->user()->name}}</span>

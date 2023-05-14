@@ -10,6 +10,6 @@ class Novel extends Model
     protected $fillable = ['pyear', 'title', 'publisher'];
     public function connection()
     {
-        return $this->belongsTo(Connection::class, 'novelid');
+        return $this->belongsTo(Connection::class, 'id');
     }
 }
