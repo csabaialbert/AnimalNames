@@ -1,3 +1,4 @@
+
 <nav class="bg-gray-100 bg-cyan-300 border-gray-200 dark:bg-gray-900 dark:border-gray-700 mb-8">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="{{ route('/') }}" class="flex items-center">
@@ -88,6 +89,17 @@
                         </ul>
                     </div>
                 </li>
+
+                @if(Auth::check())
+                @if(Auth::user()->role == 2)
+                <li>
+                    <a href="#"
+                        class="block py-2 pl-3 pr-4 text-white bg-yellow-700 rounded md:bg-transparent md:text-yellow-700 md:p-0 md:dark:text-yellow-500 dark:bg-yellow-600 md:dark:bg-transparent"
+                        aria-current="page">Admin</a>
+                </li>
+                @endif
+                @endif
+                
                     @auth
                     <li>
                         <span class="font-bold uppercase">Welcome {{auth()->user()->name}}</span>

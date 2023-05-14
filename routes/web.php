@@ -17,8 +17,8 @@ use App\Http\Controllers\UserController;
 Route::get('/', [PageController::class, 'home'])->name('/');
 Route::get('/home', [PageController::class, 'home'])->name('home');
 
-Route::get('/database/all', [PageController::class, 'all'])->name('all');
-Route::get('/database/novels', [PageController::class, 'novels'])->name('novels');
+Route::get('/database/all', [PageController::class, 'all'])->name('all')->middleware('admin');
+Route::get('/database/novels', [PageController::class, 'novels'])->name('novels')->middleware('auth');
 Route::get('/database/novel/create', [PageController::class, 'createNovel'])->name('createNovel');
 Route::post('/database/novel', [PageController::class, 'storeNovel'])->name('storeNovel');
 Route::get('/database/species', [PageController::class, 'species'])->name('species');
