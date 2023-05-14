@@ -131,6 +131,10 @@ class PageController extends Controller
         }
         return view('database.showBoth', ['val'=>$val]);
     }
+
+    public function adminPanel(){
+        return view('admin.adminPanel');
+    }
     
 
 }
