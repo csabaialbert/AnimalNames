@@ -33,6 +33,7 @@ Route::get('/database/novel/{novel}/edit', [PageController::class, 'novelEdit'])
 Route::post('/database/novel/{novel}', [PageController::class, 'updateNovel'])->name('updateNovel');
 Route::delete('/database/novel/{novel}', [PageController::class, 'deleteNovel'])->name('deleteNovel');
 Route::get('/database/showboth', [PageController::class, 'showBoth'])->name('showBoth');
+Route::get('/admin/panel', [PageController::class, 'adminPanel'])->name('adminPanel')->middleware('admin');
 
 
 //Show register create form
