@@ -22,7 +22,7 @@
             </div>
 
             <div class="mb-6">
-                <label for="species" class="inline-block text-lg mb-2">Specie</label>
+                <label for="species" class="inline-block text-lg mb-2">Species</label>
                 <input type="text" class="border border-gray-200 rounded p-2 w-full" name="species"
                 value="{{ $animal->species }}" />
                 @error('species')

@@ -9,7 +9,7 @@
             <select name="specie"
                 class="block py-2.5 px-0 w-full text-sm text-black bg-transparent border-0 border-b-2 border-purple-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-purple-500 peer"
                 required>
-                <option value="" disabled selected>Select animal specie...</option>
+                <option value="" disabled selected>Select an animal species...</option>
                 @foreach ($species as $specie)
                     @if ($specie != '')
                         <option value="{{ $specie }}">{{ $specie }}</option>

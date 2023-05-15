@@ -8,7 +8,7 @@
         <x-card class="p-10">
             <div class="flex flex-col items-center justify-center text-center">
                 <h3 class="text-2xl mb-2">Animal name: {{ $animal->aname }}</h3>
-                <div class="text-xl font-bold mb-4">Animal specie: {{ $animal->species }}</div>
+                <div class="text-xl font-bold mb-4">Animal species: {{ $animal->species }}</div>
             </div>
         </x-card>
         <x-card class="mt-4 p-2 flex space-x-6">
