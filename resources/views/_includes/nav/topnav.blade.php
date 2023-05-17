@@ -1,4 +1,3 @@
-
 <nav class="bg-gray-100 bg-cyan-300 border-gray-200 dark:bg-gray-900 dark:border-gray-700 mb-8">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="{{ route('/') }}" class="flex items-center">
@@ -41,27 +40,33 @@
                         <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
                             <li>
                                 <a href="{{ route('all') }}"
-                                    class="block px-4 py-2 hover:bg-emerald-300 dark:hover:bg-gray-600 hover:text-white">All animal names</a>
+                                    class="block px-4 py-2 hover:bg-emerald-300 dark:hover:bg-gray-600 hover:text-white">All
+                                    animal names</a>
                             </li>
                             <li>
                                 <a href="{{ route('novels') }}"
-                                    class="block px-4 py-2 hover:bg-emerald-300 dark:hover:bg-gray-600 hover:text-white">All novels</a>
+                                    class="block px-4 py-2 hover:bg-emerald-300 dark:hover:bg-gray-600 hover:text-white">All
+                                    novels</a>
                             </li>
                             <li>
                                 <a href="{{ route('species') }}"
-                                    class="block px-4 py-2 hover:bg-emerald-300 dark:hover:bg-gray-600 hover:text-white">Select by animal species</a>
+                                    class="block px-4 py-2 hover:bg-emerald-300 dark:hover:bg-gray-600 hover:text-white">Select
+                                    by animal species</a>
                             </li>
                             <li>
                                 <a href="{{ route('years') }}"
-                                    class="block px-4 py-2 hover:bg-emerald-300 dark:hover:bg-gray-600 hover:text-white">Select by novel publish year</a>
+                                    class="block px-4 py-2 hover:bg-emerald-300 dark:hover:bg-gray-600 hover:text-white">Select
+                                    by novel publish year</a>
                             </li>
                             <li>
                                 <a href="{{ route('createNovel') }}"
-                                    class="block px-4 py-2 hover:bg-emerald-300 dark:hover:bg-gray-600 hover:text-white">Create novel</a>
+                                    class="block px-4 py-2 hover:bg-emerald-300 dark:hover:bg-gray-600 hover:text-white">Create
+                                    novel</a>
                             </li>
                             <li>
                                 <a href="{{ route('showBoth') }}"
-                                    class="block px-4 py-2 hover:bg-emerald-300 dark:hover:bg-gray-600 hover:text-white">Show connected</a>
+                                    class="block px-4 py-2 hover:bg-emerald-300 dark:hover:bg-gray-600 hover:text-white">Show
+                                    connected</a>
                             </li>
                         </ul>
                     </div>
@@ -82,75 +87,83 @@
                         class="z-10 hidden font-normal bg-yellow-50 divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
                         <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
                             <li>
-                                <a href="#"
+                                <a href="{{ route('messages.create') }}"
                                     class="block px-4 py-2 hover:bg-emerald-300 dark:hover:bg-gray-600 hover:text-white">Send
                                     Us A Message</a>
                             </li>
                             <li>
-                                <a href="#"
+                                <a href="{{ route('messages.index') }}"
                                     class="block px-4 py-2 hover:bg-emerald-300 dark:hover:bg-gray-600 hover:text-white">Messageboard</a>
                             </li>
                         </ul>
                     </div>
                 </li>
 
-                @if(Auth::check())
-                @if(Auth::user()->role == 2)
+                @if (Auth::check())
+                    @if (Auth::user()->role == 2)
+                        <li>
+                            <button id="dropdownNavbarAdminLink" data-dropdown-trigger="hover"
+                                data-dropdown-toggle="dropdownNavbarAdmin"
+                                class="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-purple-400 md:hover:bg-transparent md:border-0 md:hover:text-yellow-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-yellow-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">Admin
+                                <svg class="w-5 h-5 ml-1 transform group-hover:-rotate-180 transition duration-150 ease-in-out"
+                                    aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                        clip-rule="evenodd"></path>
+                                </svg></button>
+                            <!-- Dropdown menu -->
+                            <div id="dropdownNavbarAdmin"
+                                class="z-10 hidden font-normal bg-yellow-50 divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+                                <ul class="py-2 text-sm text-gray-700 dark:text-gray-400"
+                                    aria-labelledby="dropdownLargeButton">
+                                    <li>
+                                        <a href="{{ route('adminPanel') }}"
+                                            class="block px-4 py-2 hover:bg-emerald-300 dark:hover:bg-gray-600 hover:text-white">Admin
+                                            panel</a>
+                                    </li>
+                                    <li>
+                                        <a href="#"
+                                            class="block px-4 py-2 hover:bg-emerald-300 dark:hover:bg-gray-600 hover:text-white">Manage
+                                            users</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
 
-                <li>
-                    <button id="dropdownNavbarAdminLink" data-dropdown-trigger="hover"
-                        data-dropdown-toggle="dropdownNavbarAdmin"
-                        class="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-purple-400 md:hover:bg-transparent md:border-0 md:hover:text-yellow-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-yellow-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">Admin
-                        <svg class="w-5 h-5 ml-1 transform group-hover:-rotate-180 transition duration-150 ease-in-out"
-                            aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                clip-rule="evenodd"></path>
-                        </svg></button>
-                    <!-- Dropdown menu -->
-                    <div id="dropdownNavbarAdmin"
-                        class="z-10 hidden font-normal bg-yellow-50 divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
-                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
-                            <li>
-                                <a href="{{ route('adminPanel') }}"
-                                    class="block px-4 py-2 hover:bg-emerald-300 dark:hover:bg-gray-600 hover:text-white">Admin panel</a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    class="block px-4 py-2 hover:bg-emerald-300 dark:hover:bg-gray-600 hover:text-white">Manage users</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-
-             </div>
-
-
-                @endif
-                @endif
-
-                    @auth
-                    <li class="list-none">
-                        <span class="block py-2 pl-3 pr-4 text-white bg-yellow-700 rounded md:bg-transparent md:text-yellow-700 md:p-0 md:dark:text-yellow-500 dark:bg-yellow-600 md:dark:bg-transparent">Welcome {{auth()->user()->name}}</span>
-                    </li>
-                    <li class="list-none">
-                        <form action="/logout" class="block py-2 pl-3 pr-4 text-white bg-yellow-700 rounded md:bg-transparent md:text-yellow-700 md:p-0 md:dark:text-yellow-500 dark:bg-yellow-600 md:dark:bg-transparent" method="POST">
-                            @csrf
-                            <button type="submit">
-                                    <i class="fa-solid fa-door-closed"></i> Logout
-                            </button>
-                        </form>
-                    </li>
-                    @else
-                    <li class="list-none">
-                        <a href="/register" class="block py-2 pl-3 pr-4 text-white bg-yellow-700 rounded md:bg-transparent md:text-yellow-700 md:p-0 md:dark:text-yellow-500 dark:bg-yellow-600 md:dark:bg-transparent" ><i class="fa-solid fa-user-plus"></i> Register</a>
-                    </li>
-                    <li class="list-none">
-                        <a href="/login" class="block py-2 pl-3 pr-4 text-white bg-yellow-700 rounded md:bg-transparent md:text-yellow-700 md:p-0 md:dark:text-yellow-500 dark:bg-yellow-600 md:dark:bg-transparentblock py-2 pl-3 pr-4 text-white bg-yellow-700 rounded md:bg-transparent md:text-yellow-700 md:p-0 md:dark:text-yellow-500 dark:bg-yellow-600 md:dark:bg-transparent" ><i class="fa-solid fa-arrow-right-to-bracket"></i> Login</a>
-                    </li>
-                    @endauth
-            </ul>
         </div>
+        @endif
+        @endif
+
+        @auth
+            <li class="list-none">
+                <span
+                    class="block py-2 pl-3 pr-4 text-white bg-yellow-700 rounded md:bg-transparent md:text-yellow-700 md:p-0 md:dark:text-yellow-500 dark:bg-yellow-600 md:dark:bg-transparent">Welcome
+                    {{ auth()->user()->name }}</span>
+            </li>
+            <li class="list-none">
+                <form action="/logout"
+                    class="block py-2 pl-3 pr-4 text-white bg-yellow-700 rounded md:bg-transparent md:text-yellow-700 md:p-0 md:dark:text-yellow-500 dark:bg-yellow-600 md:dark:bg-transparent"
+                    method="POST">
+                    @csrf
+                    <button type="submit">
+                        <i class="fa-solid fa-door-closed"></i> Logout
+                    </button>
+                </form>
+            </li>
+        @else
+            <li class="list-none">
+                <a href="/register"
+                    class="block py-2 pl-3 pr-4 text-white bg-yellow-700 rounded md:bg-transparent md:text-yellow-700 md:p-0 md:dark:text-yellow-500 dark:bg-yellow-600 md:dark:bg-transparent"><i
+                        class="fa-solid fa-user-plus"></i> Register</a>
+            </li>
+            <li class="list-none">
+                <a href="/login"
+                    class="block py-2 pl-3 pr-4 text-white bg-yellow-700 rounded md:bg-transparent md:text-yellow-700 md:p-0 md:dark:text-yellow-500 dark:bg-yellow-600 md:dark:bg-transparentblock py-2 pl-3 pr-4 text-white bg-yellow-700 rounded md:bg-transparent md:text-yellow-700 md:p-0 md:dark:text-yellow-500 dark:bg-yellow-600 md:dark:bg-transparent"><i
+                        class="fa-solid fa-arrow-right-to-bracket"></i> Login</a>
+            </li>
+        @endauth
+        </ul>
+    </div>
     </div>
 </nav>

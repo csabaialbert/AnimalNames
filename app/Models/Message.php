@@ -6,5 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Message extends Model
 {
-    protected $fillable = ['name', 'email', 'message'];
+    protected $fillable = ['title', 'message'];
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
 }
