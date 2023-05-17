@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->text('title');
+            $table->longText('message');
             $table->timestamps();
         });
     }
@@ -22,6 +25,9 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('messages', function (Blueprint $table) {
+            $table->dropForeign(['user_id']);
+        });
         Schema::dropIfExists('messages');
     }
 };

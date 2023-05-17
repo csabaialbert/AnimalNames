@@ -133,8 +133,8 @@ class PageController extends Controller
     }
 
     public function adminPanel(){
-        return view('admin.adminPanel');
+        return view('adminlte::page');
     }
-    
+
 
 }
