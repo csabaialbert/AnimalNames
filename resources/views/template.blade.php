@@ -20,8 +20,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-    <link rel="stylesheet" href="{{ mix('css/adminlte.css') }}">
+    {{-- <link rel="stylesheet" href="{{ mix('css/app.css') }}"> --}}
+    {{-- <link rel="stylesheet" href="{{ mix('css/adminlte.css') }}"> --}}
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="//unpkg.com/alpinejs" defer></script>
@@ -47,8 +47,8 @@
 
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"
             integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
-        <script src="{{ mix('js/app.js') }}"></script>
-        <script src="{{ mix('js/adminlte.js') }}"></script>
+        {{-- <script src="{{ mix('js/app.js') }}"></script>
+        <script src="{{ mix('js/adminlte.js') }}"></script> --}}
         <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
 
     </div>

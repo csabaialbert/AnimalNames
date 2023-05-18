@@ -36,7 +36,6 @@ class AdminUserController extends Controller
      */
     public function store(Request $request)
     {
-        error_log('request: ' . $request);
         $userData = $request->validate([
             'name' => ['required', 'min:3'],
             'email' => ['required', 'email', Rule::unique('users', 'email')],
