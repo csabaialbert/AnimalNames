@@ -68,6 +68,10 @@
                                     class="block px-4 py-2 hover:bg-emerald-300 dark:hover:bg-gray-600 hover:text-white">Show
                                     connected</a>
                             </li>
+                            <li>
+                                <a href="{{ route('chart') }}"
+                                    class="block px-4 py-2 hover:bg-emerald-300 dark:hover:bg-gray-600 hover:text-white">Chart</a>
+                            </li>
                         </ul>
                     </div>
                 </li>
@@ -130,10 +134,10 @@
                                 </ul>
                             </div>
                         </li>
-
+                    @endif
+                @endif
+            </ul>
         </div>
-        @endif
-        @endif
 
         @auth
             <li class="list-none">
