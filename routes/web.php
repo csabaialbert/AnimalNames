@@ -1,10 +1,11 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\MessageController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ChartController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -38,6 +39,7 @@ Route::get('/database/novel/{novel}/edit', [PageController::class, 'novelEdit'])
 Route::post('/database/novel/{novel}', [PageController::class, 'updateNovel'])->name('updateNovel');
 Route::delete('/database/novel/{novel}', [PageController::class, 'deleteNovel'])->name('deleteNovel');
 Route::get('/database/showboth', [PageController::class, 'showBoth'])->name('showBoth');
+Route::get('/chart', [ChartController::class, 'chart'])->name('chart');
 
 Route::resource('/messages', MessageController::class)->missing(function (Request $request) {
     return Redirect::route('messages.index');
