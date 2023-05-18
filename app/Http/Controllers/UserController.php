@@ -28,7 +28,7 @@ class UserController extends Controller
         $formFields['role']=1;
         //create User
         $user = User::create($formFields);
-        $user->role =1;
+        $user->role = 1;
         //login
         auth()->login($user);
         return redirect('/')->with('message', 'User created and logged in!');

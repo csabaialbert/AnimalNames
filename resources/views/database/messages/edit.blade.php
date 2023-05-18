@@ -4,6 +4,12 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"
         integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
     <script src="{{ asset('js/form-validation.js') }}"></script>
+    <div class="mb-8">
+        <a href="{{ route('messages.index') }}" class="text-yellow-700">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back to the Messageboard
+        </a>
+    </div>
     <div>
         @auth
             <form id="editMessage" method="POST" action="{{ route('messages.update', $message->id) }}">
@@ -47,7 +53,7 @@
                 @csrf
                 @method('DELETE')
 
-                <button type="submit" id="submitMessage"
+                <button type="submit" id="deleteMessage"
                     class="text-white bg-red-700 disabled:bg-gray-500 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mt-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:bg-red-800">Delete
                     Message</button>
             </form>
