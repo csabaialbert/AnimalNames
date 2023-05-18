@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\MessageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
@@ -42,6 +43,10 @@ Route::resource('/messages', MessageController::class)->missing(function (Reques
     return Redirect::route('messages.index');
 });
 
+Route::resource('/adminusers', AdminUserController::class)->missing(function (Request $request) {
+    return Redirect::route('adminusers.index');
+})->middleware('admin');
+
 Route::get('/admin/panel', [PageController::class, 'adminPanel'])->name('adminPanel')->middleware('admin');
 
 
@@ -59,5 +64,3 @@ Route::get('/login', [UserController::class, 'login'])->name('login')->middlewar
 
 //Login user
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);
-
-
