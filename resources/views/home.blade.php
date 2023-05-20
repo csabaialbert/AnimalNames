@@ -7,15 +7,22 @@
             <div class="my-4 lg:text-left text-center">
                 <p class="font-semibold">This application is based on Istvan Fekete's novels.</p>
                 <p>
-                    István Fekete’s animal novels are popular works of children’s literature. 
-                    These books bring nature closer to the reader, they introduce the life of animals to young readers, 
+                    István Fekete’s animal novels are popular works of children’s literature.
+                    These books bring nature closer to the reader, they introduce the life of animals to young readers,
                     but some also demonstrate human traits and relationships on the symbolical level.
                 </p>
                 <p>
                     The animal names invented by István Fekete, most of which appear in his novels as well,
-                     are available in the files provided. The source files contain the name and the species of the animals and the
-                     title of the novels, the year of their first publishing and the name of the publishing company.
+                    are available in the files provided. The source files contain the name and the species of the animals
+                    and the
+                    title of the novels, the year of their first publishing and the name of the publishing company.
                 </p>
+            </div>
+            <div class="my-4 lg:text-center text-center mx-auto">
+                <iframe width="500" height="281" src="https://www.youtube.com/embed/108UBqh8hiE"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
             </div>
         </div>
     </div>
