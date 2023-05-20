@@ -1,8 +1,8 @@
 @extends('template')
 
 @section('content')
-    <div class="flex justify-center items-center">Most frequently used animal species in István Fekete's novels</div>
-    <div class="w-1/2 block mx-auto my-0">
+    <div class="flex justify-center items-center mb-12 text-xl">Most frequently used animal species in István Fekete's novels</div>
+    <div class="w-1/3 block mx-auto my-0">
         <canvas id="myChart"></canvas>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

@@ -1,13 +1,13 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\ChartController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\ChartController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,9 +48,6 @@ Route::resource('/messages', MessageController::class)->missing(function (Reques
 Route::resource('/adminusers', AdminUserController::class)->missing(function (Request $request) {
     return Redirect::route('adminusers.index');
 })->middleware('admin');
-
-Route::get('/admin/panel', [PageController::class, 'adminPanel'])->name('adminPanel')->middleware('admin');
-
 
 //Show register create form
 Route::get('/register', [UserController::class, 'create'])->middleware('guest');

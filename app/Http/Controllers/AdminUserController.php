@@ -4,22 +4,23 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
 class AdminUserController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware('admin', ['except' => ['show']]);
     }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
         $users = User::orderBy('id', 'asc')->paginate(10);
+
         return view('users.index')->with('users', $users);
     }
 
@@ -39,7 +40,7 @@ class AdminUserController extends Controller
         $userData = $request->validate([
             'name' => ['required', 'min:3'],
             'email' => ['required', 'email', Rule::unique('users', 'email')],
-            'password'=>['required', 'min:6'],
+            'password' => ['required', 'min:6'],
             'role' => ['required', 'min:1', 'max:2'],
         ]);
         //hash password
@@ -71,6 +72,7 @@ class AdminUserController extends Controller
         if (Auth::user()->role < 2) {
             return abort(403);
         }
+
         return view('users.edit')->with('user', $user);
     }
 
@@ -80,8 +82,7 @@ class AdminUserController extends Controller
     public function update(Request $request, string $id)
     {
         $user = User::findOrFail($id);
-        if (Auth::user()->role < 2)
-        {
+        if (Auth::user()->role < 2) {
             return abort(403);
         }
         $user->name = $request->name;
@@ -104,11 +105,11 @@ class AdminUserController extends Controller
     public function destroy(string $id)
     {
         $user = User::findOrFail($id);
-        if (Auth::user()->role < 2)
-        {
+        if (Auth::user()->role < 2) {
             return abort(403);
         }
         $user->delete();
+
         return redirect()->route('adminusers.index');
     }
 }

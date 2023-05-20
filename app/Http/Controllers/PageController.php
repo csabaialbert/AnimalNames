@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Animal;
-use App\Models\Novel;
 use App\Models\Connection;
+use App\Models\Novel;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -35,6 +35,7 @@ class PageController extends Controller
 
         return view('database.species', ['species' => $species]);
     }
+
     public function specieList()
     {
         return view('database.specieList', ['animals' => Animal::get(), 'selectedSpecie' => $_POST['specie']]);
@@ -48,8 +49,10 @@ class PageController extends Controller
         foreach ($grouped as $value) {
             array_push($years, $value[0]->pyear);
         }
+
         return view('database.years', ['years' => $years]);
     }
+
     public function yearList()
     {
         return view('database.yearList', ['novels' => Novel::get(), 'selectedYear' => $_POST['year']]);
@@ -77,7 +80,6 @@ class PageController extends Controller
         return redirect('/database/all')->with('message', 'Animal updated successfully!');
     }
 
-
     public function novelShow(Novel $novel)
     {
         return view('database.novelShow', ['novel' => $novel]);
@@ -101,15 +103,17 @@ class PageController extends Controller
         return redirect('/database/novels')->with('message', 'Novel updated successfully!');
     }
 
-    public function createNovel() {
+    public function createNovel()
+    {
         return view('database.createNovel');
     }
 
-    public function storeNovel(Request $request) {
+    public function storeNovel(Request $request)
+    {
         $formFields = $request->validate([
-            'pyear'=>'required',
-            'title'=>'required',
-            'publisher'=>'required'
+            'pyear' => 'required',
+            'title' => 'required',
+            'publisher' => 'required',
         ]);
 
         Novel::create($formFields);
@@ -117,24 +121,27 @@ class PageController extends Controller
         return redirect('/database/novels')->with('message', 'Novel created succesfully!');
     }
 
-    public function deleteNovel(Novel $novel){
+    public function deleteNovel(Novel $novel)
+    {
 
         $novel->delete();
+
         return redirect('/database/novels')->with('message', 'Novel deleted succesfully!');
     }
 
-    public function showBoth(){
+    public function showBoth()
+    {
         $connections = Connection::get();
-        $val=[];
-        foreach($connections as $connection){
+        $val = [];
+        foreach ($connections as $connection) {
             array_push($val, $connection->load('animal', 'novel'));
         }
-        return view('database.showBoth', ['val'=>$val]);
+
+        return view('database.showBoth', ['val' => $val]);
     }
 
-    public function adminPanel(){
+    public function adminPanel()
+    {
         return view('adminlte::page');
     }
-
-
 }
