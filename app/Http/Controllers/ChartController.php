@@ -12,7 +12,7 @@ class ChartController extends Controller
             ->select('species', DB::raw('count(id) as animal_count'))
             ->groupBy('species')
             ->orderByDesc('animals.animal_count')
-            ->having('count(id)', '>=', 3)
+            ->havingRaw('count(id) >= ?', [3])
             ->get();
 
         return view('database.chart.chart', compact('animals'));
