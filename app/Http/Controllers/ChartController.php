@@ -11,7 +11,7 @@ class ChartController extends Controller
         $animals = DB::table('animals')
             ->select('species', DB::raw('count(id) as animal_count'))
             ->groupBy('species')
-            ->orderByDesc('animals.animal_count')
+            ->orderByDesc('animal_count')
             ->havingRaw('count(id) >= ?', [3])
             ->get();
 
