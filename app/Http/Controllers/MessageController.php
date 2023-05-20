@@ -19,6 +19,7 @@ class MessageController extends Controller
     public function index()
     {
         $messages = Message::orderBy('id', 'desc')->paginate(10);
+
         return view('database.messages.index')->with('messages', $messages);
     }
 
@@ -68,10 +69,10 @@ class MessageController extends Controller
     public function edit(string $id)
     {
         $message = Message::findOrFail($id);
-        if ($message->user->id !== Auth::id() && Auth::user()->role < 2)
-        {
+        if ($message->user->id !== Auth::id() && Auth::user()->role < 2) {
             return abort(403);
         }
+
         return view('database.messages.edit')->with('message', $message);
     }
 
@@ -81,8 +82,7 @@ class MessageController extends Controller
     public function update(Request $request, string $id)
     {
         $message = Message::findOrFail($id);
-        if ($message->user->id !== Auth::id() && Auth::user()->role < 2)
-        {
+        if ($message->user->id !== Auth::id() && Auth::user()->role < 2) {
             return abort(403);
         }
         $message->title = $request->title;
@@ -102,11 +102,11 @@ class MessageController extends Controller
     public function destroy(string $id)
     {
         $message = Message::findOrFail($id);
-        if ($message->user->id !== Auth::id() && Auth::user()->role < 2)
-        {
+        if ($message->user->id !== Auth::id() && Auth::user()->role < 2) {
             return abort(403);
         }
         $message->delete();
+
         return redirect()->route('messages.index');
     }
 }
