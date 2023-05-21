@@ -14,7 +14,7 @@ class AnimalNamesSeeder extends Seeder
     {
         $tables = ['animals', 'novels', 'connections'];
         foreach ($tables as $table) {
-            $this->seedFileToTable(storage_path($table . '.txt'), $table);
+            $this->seedFileToTable(storage_path($table.'.txt'), $table);
         }
     }
 
@@ -23,9 +23,9 @@ class AnimalNamesSeeder extends Seeder
         $contents = file($filePath);
 
         foreach ($contents as $content) {
-            $values = explode("\t", $content);
+            $values = explode("\t", str_replace(["\r", "\n"], '', $content));
 
-            if (!isset($columns)) {
+            if (! isset($columns)) {
                 $columns = array_map(fn ($value) => str_replace(["\r", "\n"], '', $value), $values);
             } else {
                 $data = array_combine($columns, $values);
