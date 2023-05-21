@@ -23,7 +23,7 @@ class AnimalNamesSeeder extends Seeder
         $contents = file($filePath);
 
         foreach ($contents as $content) {
-            $values = explode("\t", $content);
+            $values = explode("\t", str_replace(["\r", "\n"], '', $content));
 
             if (! isset($columns)) {
                 $columns = array_map(fn ($value) => str_replace(["\r", "\n"], '', $value), $values);
