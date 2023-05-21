@@ -33,6 +33,8 @@ class PageController extends Controller
             array_push($species, $value[0]->species);
         }
 
+        sort($species);
+
         return view('database.species', ['species' => $species]);
     }
 
