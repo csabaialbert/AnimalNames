@@ -11,7 +11,7 @@
                 required>
                 <option value="" disabled selected>Select an animal species...</option>
                 @foreach ($species as $specie)
-                    @if ($specie != '')
+                    @if ($specie !== '')
                         <option value="{{ $specie }}">{{ $specie }}</option>
                     @endif
                 @endforeach
